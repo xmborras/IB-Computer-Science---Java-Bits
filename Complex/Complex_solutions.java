@@ -1,4 +1,24 @@
 /*
+* Write a recursive method to compute the factorial of a non-negative integer.
+*
+* SOLUTION: The factorial method takes an integer n as input and returns the factorial of n.
+* The method uses recursion to compute the factorial: if n is 0, the method immediately returns 1 
+* (since 0! = 1 by definition). Otherwise, it multiplies n by the result of calling factorial(n - 1), 
+* which computes the factorial of n - 1. This recursive call continues until n reaches 0, 
+* at which point the recursive calls return and the final result is computed by multiplying all the previous results together.
+* The method also includes a check to ensure that n is non-negative. If n is negative, the method throws an IllegalArgumentException.
+*/
+public static int factorial(int n) {
+    if (n < 0) {
+        throw new IllegalArgumentException("Cannot compute factorial of negative number");
+    } else if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+/*
 * Write a program to check if a given String is anagram of another String
 *
 * SOLUTION: This solution uses an array of integers charCounts with a size of 128 (assuming ASCII characters). 
@@ -34,6 +54,7 @@ public class Main {
         return true;
     }
 }
+
 /*
 * Write an program to reproduce the Merge Sort algorithm
 *
@@ -90,5 +111,32 @@ private static void merge(int[] arr, int[] left, int[] right) {
         arr[k] = right[j];
         j++;
         k++;
+    }
+}
+/*
+* Write a method that takes two integers as inputs and returns their quotient. 
+* If the second integer is zero, the method should throw an exception.
+* 
+* SOLUTION: The quotient method takes two integers dividend and divisor as inputs and returns their quotient. 
+* If divisor is zero, the method throws an ArithmeticException with the message "Cannot divide by zero".
+*/
+public class QuotientCalc {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+
+        try {
+            int q = quotient(a, b);
+            System.out.println(q);
+        } catch (ArithmeticException e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+
+    }
+    public static int quotient(int dividend, int divisor) throws ArithmeticException {
+        if (divisor == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return dividend / divisor;
     }
 }
