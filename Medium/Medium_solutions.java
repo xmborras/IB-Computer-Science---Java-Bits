@@ -57,3 +57,62 @@ public class Main {
         }
     }
 }
+/*
+* Write a program to find the sum of all elements in a two-dimensional array
+*
+* SOLUTION
+*/
+public class Main {
+    public static void main(String[] args) {
+        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int sum = findSum(arr);
+        System.out.println("The sum of all elements in the array is: " + sum);
+    }
+
+    public static int findSum(int[][] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                sum += arr[i][j];
+            }
+        }
+        return sum;
+    }
+}
+/*
+* Write a program to remove all duplicates from an array of integers
+*
+* SOLUTION
+*/
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3, 4, 5, 4, 3, 2, 1 };
+        int[] arrWithoutDuplicates = removeDuplicates(arr);
+        for (int i = 0; i < arrWithoutDuplicates.length; i++) {
+            System.out.print(arrWithoutDuplicates[i] + " ");
+        }
+    }
+
+    public static int[] removeDuplicates(int[] arr) {
+        int[] arrWithoutDuplicates = new int[arr.length];
+        int currentIndex = 0;
+        for (int i = 0; i < arr.length; i++) {
+            boolean isDuplicate = false;
+            for (int j = 0; j < currentIndex; j++) {
+                if (arr[i] == arrWithoutDuplicates[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) {
+                arrWithoutDuplicates[currentIndex] = arr[i];
+                currentIndex++;
+            }
+        }
+        int[] result = new int[currentIndex];
+        for (int i = 0; i < currentIndex; i++) {
+            result[i] = arrWithoutDuplicates[i];
+        }
+        return result;
+    }
+}
