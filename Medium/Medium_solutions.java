@@ -116,3 +116,45 @@ public class Main {
         return result;
     }
 }
+/*
+* Write a program to reproduce the Binary Search algorithm
+*
+* SOLUTION
+*/
+public static int binarySearch(int[] arr, int target) {
+    int left = 0;
+    int right = arr.length - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+/* 
+* Write a program to reproduce the Bubble Sort algorithm
+*
+* SOLUTION
+*/
+public static void bubbleSort(int[] arr) {
+    boolean swapped;
+    for (int i = 0; i < arr.length - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < arr.length - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+    }
+}
