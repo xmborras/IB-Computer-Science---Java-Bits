@@ -85,3 +85,16 @@ public class Main {
         }
     }
 }
+/* 
+* Write a program to reproduce the Linear Search algorithm
+*
+* SOLUTION
+*/
+public static int linearSearch(int[] arr, int target) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+    }
+    return -1;
+}
