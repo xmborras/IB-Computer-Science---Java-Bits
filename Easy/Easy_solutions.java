@@ -85,6 +85,7 @@ public class Main {
         }
     }
 }
+
 /* 
 * Write a program to reproduce the Linear Search algorithm
 *
@@ -97,4 +98,15 @@ public static int linearSearch(int[] arr, int target) {
         }
     }
     return -1;
+}
+
+/*
+* Write a program to countdown to zero from a given integer
+*
+* SOLUTION
+*/
+public static void countdown(int startNumber) {
+    for (int i=startNumber; i>=0; i--) {
+        System.out.println(i);
+    }
 }
