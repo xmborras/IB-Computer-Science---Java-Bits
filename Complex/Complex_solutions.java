@@ -1,4 +1,30 @@
 /*
+* Write a program to find all the possible anagrams given a String using recursivity
+*
+* SOLUTION:
+*/
+public class AnagramFinder {
+
+    public static void main(String[] args) {
+        String input = "abcd";
+        findAnagrams("", input);
+    }
+
+    public static void findAnagrams(String prefix, String remaining) {
+        if (remaining.length() == 0) {
+            System.out.println(prefix);
+        } else {
+            for (int i = 0; i < remaining.length(); i++) {
+                String newPrefix = prefix + remaining.charAt(i);
+                String newRemaining = remaining.substring(0, i) + remaining.substring(i + 1);
+                findAnagrams(newPrefix, newRemaining);
+            }
+        }
+    }
+}
+
+
+/*
 * Write a recursive method to compute the factorial of a non-negative integer.
 *
 * SOLUTION: The factorial method takes an integer n as input and returns the factorial of n.
