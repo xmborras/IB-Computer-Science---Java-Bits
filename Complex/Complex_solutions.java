@@ -1,7 +1,16 @@
 /*
 * Write a program to find all the possible anagrams given a String using recursivity
 *
-* SOLUTION:
+* SOLUTION:The findAnagrams method takes two strings as input: prefix, 
+* which represents the letters that have been chosen so far, and remaining, 
+* which represents the letters that have not been chosen yet. 
+* The method uses recursion to generate all possible anagrams of the input string.
+* If remaining is empty, the method has generated a complete anagram, 
+* and it prints the prefix to the console. 
+* Otherwise, the method loops over the characters in remaining and chooses one to add to the prefix.
+* It then recursively calls itself with the updated prefix and remaining, until all possible combinations have been generated.
+* In the main method, we call findAnagrams with an empty prefix and the input string "abcd".
+* The program then generates and prints all possible anagrams of the input string.
 */
 public class AnagramFinder {
 
