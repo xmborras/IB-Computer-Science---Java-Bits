@@ -1,4 +1,25 @@
 /*
+* Write a program to check if a given string is a palindrome, that is, if it reads the same forwards and backwards.
+*
+* SOLUTION
+*/
+public static boolean isPalindrome(String str) {
+    int i = 0;
+    int j = str.length() - 1;
+
+    while (i < j) {
+        if (str.charAt(i) != str.charAt(j)) {
+            return false;
+        }
+        i++;
+        j--;
+    }
+
+    return true;
+}
+
+
+/*
 * Write a program to check if a given String is a palindrome
 *
 * SOLUTION
