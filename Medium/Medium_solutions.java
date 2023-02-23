@@ -18,7 +18,6 @@ public static boolean isPalindrome(String str) {
     return true;
 }
 
-
 /*
 * Write a program to check if a given String is a palindrome
 *
