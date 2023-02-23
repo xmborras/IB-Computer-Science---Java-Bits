@@ -1,4 +1,66 @@
 /*
+* Write a program to sort an array of integers using the "quicksort" algorithm
+*
+* SOLUTION: In this program, we first initialize an integer array called arr 
+* and print the original array using Arrays.toString().
+* We then call the quickSort() function and pass the array, the first index (0),
+* and the last index (arr.length-1) as parameters.
+* The quickSort() function takes in the array, the starting and ending indices
+* as parameters. If the starting index is less than the ending index, 
+* we calculate the pivot index using the partition() function, 
+* which will be used to divide the array into two halves. 
+* We then recursively call quickSort() on the left and right halves of the array.
+* The partition() function takes in the array, 
+* the starting and ending indices as parameters. 
+* We first set the pivot element to the last element of the array. 
+* We initialize a variable i to the starting index minus 1, 
+* and loop through the array from the starting index to the ending index. 
+* If an element is less than the pivot element, 
+* we increment i and swap the elements at index i and j. 
+* After the loop, we swap the pivot element with the element at index i+1 
+* and return i+1.
+*/
+public class QuickSort {
+   public static void main(String[] args) {
+      int[] arr = {4, 2, 6, 1, 7, 3, 9, 5};
+      System.out.println("Original array: " + Arrays.toString(arr));
+      
+      quickSort(arr, 0, arr.length-1);
+      
+      System.out.println("Sorted array: " + Arrays.toString(arr));
+   }
+   
+   public static void quickSort(int[] arr, int low, int high) {
+      if(low < high) {
+         int pivot = partition(arr, low, high);
+         quickSort(arr, low, pivot-1);
+         quickSort(arr, pivot+1, high);
+      }
+   }
+   
+   public static int partition(int[] arr, int low, int high) {
+      int pivot = arr[high];
+      int i = low-1;
+      
+      for(int j = low; j < high; j++) {
+         if(arr[j] < pivot) {
+            i++;
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+         }
+      }
+      
+      int temp = arr[i+1];
+      arr[i+1] = arr[high];
+      arr[high] = temp;
+      
+      return i+1;
+   }
+}
+
+
+/*
 * Write a program to find all the possible anagrams given a String using recursivity
 *
 * SOLUTION:The findAnagrams method takes two strings as input: prefix, 
